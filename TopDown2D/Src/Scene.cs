@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TopDown2D.Collision;
+using TopDown2D.Textures;
 
 namespace TopDown2D
 {
@@ -12,21 +15,32 @@ namespace TopDown2D
   /// </summary>
   public class Scene
   {
-    protected List<Collider> Colliders;
+    protected List<Collider> colliders;
 
-    protected List<Graphic> Graphics;
+    protected List<Graphic> graphics;
+
+    protected Texture2D background;
+
+    public Scene()
+    {
+      graphics = new List<Graphic>();
+      colliders = new List<Collider>();
+    }
 
     public void Update()
     {
-      CollisionDetector.DetectCollisions(Colliders);
+      CollisionDetector.DetectCollisions(colliders);
     }
 
-    public void Draw()
+    public void Draw(SpriteBatch batch)
     {
-      foreach (var obj in Graphics)
+      batch.Begin();
+      batch.Draw(background, Vector2.Zero, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+      foreach (var grp in graphics)
       {
-        obj.Draw();
+        grp.Draw(batch);
       }
+      batch.End();
     }
 
     //Adds the object to colliders, textures etc
@@ -34,11 +48,11 @@ namespace TopDown2D
     {
       if (obj.collider != null)
       {
-        Colliders.Add(obj.Collider);
+        colliders.Add(obj.collider);
       }
-      if (obj.texture != null)
+      if (obj.graphic != null)
       {
-        Graphics.Add(obj.Graphic);
+        graphics.Add(obj.graphic);
       }
     }
   }

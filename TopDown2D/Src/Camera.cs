@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TopDown2D.Collision
+namespace TopDown2D
 {
-  public interface ICollisionArea
+  public class Camera
   {
-    bool Collision(Collider collider);
   }
 }

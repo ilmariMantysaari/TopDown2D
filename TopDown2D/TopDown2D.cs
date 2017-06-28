@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using TopDown2D.Scenes;
 
 namespace TopDown2D
 {
@@ -13,6 +14,9 @@ namespace TopDown2D
     SpriteBatch spriteBatch;
     Scene currentScene;
 
+    public static Texture2D playerTexture;
+    public static Texture2D enemyTexture;
+    public static Texture2D mapTexture;
 
     public TopDown2D()
     {
@@ -23,15 +27,18 @@ namespace TopDown2D
     protected override void Initialize()
     {
       base.Initialize();
+      currentScene = new Level1();
     }
     
     protected override void LoadContent()
     {
       spriteBatch = new SpriteBatch(GraphicsDevice);
       //For time being, all content is loaded here at once
-
+      playerTexture = Content.Load<Texture2D>("blue_circle");
+      enemyTexture = Content.Load<Texture2D>("red_circle");
+      mapTexture = Content.Load<Texture2D>("green_tile_grid");
     }
-    
+
     protected override void UnloadContent()
     {
     }
@@ -48,9 +55,9 @@ namespace TopDown2D
     
     protected override void Draw(GameTime gameTime)
     {
-      GraphicsDevice.Clear(Color.CornflowerBlue);
+      GraphicsDevice.Clear(Color.Black);
 
-      currentScene.Draw();
+      currentScene.Draw(spriteBatch);
 
       base.Draw(gameTime);
     }

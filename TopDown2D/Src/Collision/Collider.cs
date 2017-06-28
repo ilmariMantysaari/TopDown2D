@@ -10,10 +10,16 @@ namespace TopDown2D.Collision
   {
 
     public ICollisionArea collisionArea;
+    public GameObject parent;
 
-    public virtual void OnCollision()
+    public virtual bool Collision(Collider collider)
     {
-
+      return false;
     }
+
+    public virtual void OnCollision(Collider collider)
+    {
+    }
+
   }
 }

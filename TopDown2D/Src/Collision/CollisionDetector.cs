@@ -19,14 +19,14 @@ namespace TopDown2D.Collision
       //TODO: parempi algoritmi kaikkien collisioneiden selvittämiseen
       for (int i = 0; i < colliders.Count - 1; i++)
       {
-        var collider = colliders.ElementAt(i);
+        var collider1 = colliders.ElementAt(i);
         for (int j = i + 1; j < colliders.Count; j++)
         {
-          var collider = colliders.ElementAt(j);
-          if (collider.Collision(collider.collider))
+          var collider2 = colliders.ElementAt(j);
+          if (collider1.Collision(collider2))
           {
-            element1.OnCollision(element2);
-            element2.OnCollision(element1);
+            collider1.OnCollision(collider2);
+            collider2.OnCollision(collider1);
           }
         }
       }
