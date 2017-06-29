@@ -16,18 +16,35 @@ namespace TopDown2D.Scenes
       this.background = TopDown2D.mapTexture;
       var blue = new Player();
 
-      var red = new GameObject()
+      var red = new Enemy();
+
+      for (int i = 0; i < 100; i++)
       {
-        position = new Vector2(300, 228)
-      };
-      red.graphic = new Textures.Graphic(red)
+        var enemy = new Enemy()
+        {
+          position = new Vector2(i * 150, 200)
+        };
+        this.AddItem(enemy);
+      }
+
+      for (int i = 0; i < 100; i++)
       {
-        texture = TopDown2D.enemyTexture
-      };
-      red.collider = new CircleCollider(red, red.graphic.texture.Height / 2);
-      red.origin = new Vector2(red.graphic.texture.Width / 2, red.graphic.texture.Height / 2);
+        var enemy = new Enemy()
+        {
+          position = new Vector2(i * 150, 500)
+        };
+        this.AddItem(enemy);
+      }
+      for (int i = 0; i < 100; i++)
+      {
+        var enemy = new Enemy()
+        {
+          position = new Vector2(i * 150, 800)
+        };
+        this.AddItem(enemy);
+      }
       this.AddItem(blue);
-      this.AddItem(red);
+      //this.AddItem(red);
       this.camera.follow = blue;
     }
   }
