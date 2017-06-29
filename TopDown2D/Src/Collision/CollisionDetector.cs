@@ -15,7 +15,7 @@ namespace TopDown2D.Collision
       {
         return;
       }
-
+      
       //TODO: parempi algoritmi kaikkien collisioneiden selvittämiseen
       for (int i = 0; i < colliders.Count - 1; i++)
       {
@@ -25,8 +25,8 @@ namespace TopDown2D.Collision
           var collider2 = colliders.ElementAt(j);
           if (collider1.Collision(collider2))
           {
-            collider1.OnCollision(collider2);
-            collider2.OnCollision(collider1);
+            collider1.parent.OnCollision(collider2);
+            collider2.parent.OnCollision(collider1);
           }
         }
       }

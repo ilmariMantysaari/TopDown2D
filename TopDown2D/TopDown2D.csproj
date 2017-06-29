@@ -47,8 +47,10 @@
     <Compile Include="Src\Collision\CircleCollider.cs" />
     <Compile Include="Src\Collision\Collider.cs" />
     <Compile Include="Src\Collision\CollisionDetector.cs" />
-    <Compile Include="Src\Collision\ICollisionArea.cs" />
     <Compile Include="Src\GameObject.cs" />
+    <Compile Include="Src\GameObjects\Enemy.cs" />
+    <Compile Include="Src\GameObjects\Player.cs" />
+    <Compile Include="Src\InputConfig.cs" />
     <Compile Include="Src\Scene.cs" />
     <Compile Include="Src\Scenes\Level1.cs" />
     <Compile Include="Src\Textures\Graphic.cs" />

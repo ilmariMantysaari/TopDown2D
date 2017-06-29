@@ -14,6 +14,8 @@ namespace TopDown2D
     SpriteBatch spriteBatch;
     Scene currentScene;
 
+    public static Viewport viewport;
+
     public static Texture2D playerTexture;
     public static Texture2D enemyTexture;
     public static Texture2D mapTexture;
@@ -27,6 +29,8 @@ namespace TopDown2D
     protected override void Initialize()
     {
       base.Initialize();
+      InputConfig.Load();
+      viewport = GraphicsDevice.Viewport;
       currentScene = new Level1();
     }
     
@@ -47,7 +51,7 @@ namespace TopDown2D
     {
       if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
         Exit();
-
+      
       currentScene.Update();
 
       base.Update(gameTime);

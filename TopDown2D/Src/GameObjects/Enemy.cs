@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TopDown2D.Collision
+namespace TopDown2D.Src.GameObjects
 {
-  public interface ICollisionArea
+  public class Enemy : GameObject
   {
-    bool Collision(Collider collider);
+
   }
 }

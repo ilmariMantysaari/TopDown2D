@@ -1,25 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TopDown2D.Collision
 {
-  public class Collider
+  public interface Collider
   {
+    GameObject parent { get; set; }
+    CollisionEffect effect { get; set; }
 
-    public ICollisionArea collisionArea;
-    public GameObject parent;
-
-    public virtual bool Collision(Collider collider)
-    {
-      return false;
-    }
-
-    public virtual void OnCollision(Collider collider)
-    {
-    }
-
+    bool Collision(Collider collider);
+  }
+  public enum CollisionEffect
+  {
+    Damage, Heal
   }
 }
