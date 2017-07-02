@@ -31,8 +31,8 @@ namespace TopDown2D.Collision
     public bool IntersectCircle(CircleCollider circle)
     {
       var rad = this.radius + circle.radius;
-      var pos = this.parent.origin + this.parent.position;
-      var pos2 = circle.parent.origin + circle.parent.position;
+      var pos = this.parent.origin + this.parent.transform.position;
+      var pos2 = circle.parent.origin + circle.parent.transform.position;
       var distX = pos.X - pos2.X;
       var distY = pos.Y - pos2.Y;
 

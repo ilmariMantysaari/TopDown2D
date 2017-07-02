@@ -22,6 +22,8 @@ namespace TopDown2D
 
     protected List<GameObject> gameObjects;
 
+    protected List<Behavior> behaviors;
+
     protected Texture2D background;
 
     public Camera camera;
@@ -31,14 +33,15 @@ namespace TopDown2D
       graphics = new List<Graphic>();
       colliders = new List<Collider>();
       gameObjects = new List<GameObject>();
+      behaviors = new List<Behavior>();
       camera = new Camera();
     }
 
     public void Update()
     {
-      foreach (var obj in gameObjects)
+      foreach (var behavior in behaviors)
       {
-        obj.Update();
+        behavior.Update();
       }
       CollisionDetector.DetectCollisions(colliders);
       Debug.WriteLine("Clear");
@@ -66,6 +69,10 @@ namespace TopDown2D
       if (obj.graphic != null)
       {
         graphics.Add(obj.graphic);
+      }
+      if (obj.behavior != null)
+      {
+        behaviors.Add(obj.behavior);
       }
       gameObjects.Add(obj);
     }

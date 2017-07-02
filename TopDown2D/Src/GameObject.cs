@@ -18,26 +18,21 @@ namespace TopDown2D
 
     public Graphic graphic;
 
-    public Vector2 position;
+    public Transform transform;
 
-    public float rotation;
+    public Behavior behavior;
 
     /// <summary>
     /// Return the 'central point' of object.
-    /// This used for rotation, and positioning of colliders
+    /// This used for rotation and positioning of colliders
     /// </summary>
     /// <returns></returns>
     public Vector2 origin;
 
     public GameObject()
     {
-      rotation = 0f;
+      transform = new Transform(this);
       origin = Vector2.Zero;
-    }
-
-    public virtual void Update()
-    {
-      
     }
 
     public virtual void OnCollision(Collider obj)

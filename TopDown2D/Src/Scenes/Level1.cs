@@ -16,7 +16,8 @@ namespace TopDown2D.Scenes
       this.background = TopDown2D.mapTexture;
       var blue = new Player();
 
-      var red = new GameObject()
+      var red = new GameObject();
+      red.transform = new Transform(red)
       {
         position = new Vector2(300, 228)
       };
@@ -24,6 +25,7 @@ namespace TopDown2D.Scenes
       {
         texture = TopDown2D.enemyTexture
       };
+      red.behavior = new Behavior(red);
       red.collider = new CircleCollider(red, red.graphic.texture.Height / 2);
       red.origin = new Vector2(red.graphic.texture.Width / 2, red.graphic.texture.Height / 2);
       this.AddItem(blue);

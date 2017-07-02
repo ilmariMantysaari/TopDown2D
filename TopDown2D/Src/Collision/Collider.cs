@@ -14,8 +14,9 @@ namespace TopDown2D.Collision
 
     bool Collision(Collider collider);
   }
+
   public enum CollisionEffect
   {
-    Damage, Heal
+    Damage, Heal, Stop
   }
 }

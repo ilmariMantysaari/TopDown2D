@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\Behavior.cs" />
     <Compile Include="Src\Camera.cs" />
     <Compile Include="Src\Collision\CircleCollider.cs" />
     <Compile Include="Src\Collision\Collider.cs" />
@@ -50,10 +51,12 @@
     <Compile Include="Src\GameObject.cs" />
     <Compile Include="Src\GameObjects\Enemy.cs" />
     <Compile Include="Src\GameObjects\Player.cs" />
+    <Compile Include="Src\GameObjects\PlayerBehavior.cs" />
     <Compile Include="Src\InputConfig.cs" />
     <Compile Include="Src\Scene.cs" />
     <Compile Include="Src\Scenes\Level1.cs" />
     <Compile Include="Src\Textures\Graphic.cs" />
+    <Compile Include="Src\Transform.cs" />
     <Compile Include="TopDown2D.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +70,7 @@
     <Content Include="Content\blue_circle.png" />
     <Content Include="Content\green_tile.png" />
     <Content Include="Content\green_tile_grid.png" />
+    <Content Include="Content\red_circle.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
