@@ -7,23 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TopDown2D.Textures
+namespace TopDown2D
 {
-  public class Graphic
+  /// <summary>
+  /// Renders the gameobject on screen
+  /// </summary>
+  public class Renderer
   {
 
-    public GameObject parent;
+    public GameObject gameObject;
     public Texture2D texture;
 
-    public Graphic(GameObject parent)
+    public Renderer(GameObject parent)
     {
-      this.parent = parent;
+      this.gameObject = parent;
     }
 
     public void Draw(SpriteBatch batch)
     {
       Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f);
-      batch.Draw(texture, parent.transform.position, null, Color.White, parent.transform.rotation, origin, 1f, SpriteEffects.None, 0f);
+      batch.Draw(texture, gameObject.transform.Position, null, Color.White, gameObject.transform.rotation, origin, 1f, SpriteEffects.None, 0f);
     }
   }
 }

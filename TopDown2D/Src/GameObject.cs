@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TopDown2D.Collision;
-using TopDown2D.Textures;
 
 namespace TopDown2D
 {
@@ -16,11 +15,17 @@ namespace TopDown2D
   {
     public Collider collider;
 
-    public Graphic graphic;
+    public Renderer renderer;
 
     public Transform transform;
 
     public Behavior behavior;
+
+    //the parent gameobject
+    //There's necessarily no parent gameobject if this object is direct child of the scene
+    //If parent is present, the gameobject is rendered relative to parent
+    public GameObject parent;
+    public List<GameObject> children;
 
     /// <summary>
     /// Return the 'central point' of object.
@@ -37,7 +42,7 @@ namespace TopDown2D
 
     public virtual void OnCollision(Collider obj)
     {
-      Debug.WriteLine("Collision");
+      Debug.WriteLine("Collision" + this);
     }
   }
 }

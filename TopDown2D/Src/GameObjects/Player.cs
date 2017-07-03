@@ -12,18 +12,20 @@ namespace TopDown2D.GameObjects
 {
   public class Player : GameObject
   {
-
     public Player()
     {
-      transform.position = new Vector2(300, 100);
-      graphic = new Textures.Graphic(this)
+      renderer = new Renderer(this)
       {
         texture = TopDown2D.playerTexture
       };
-      collider = new CircleCollider(this, graphic.texture.Width / 2);
-      origin = new Vector2(graphic.texture.Width / 2, graphic.texture.Height / 2);
+      collider = new CircleCollider(this, renderer.texture.Width / 2);
+      origin = new Vector2(renderer.texture.Width / 2, renderer.texture.Height / 2);
       this.behavior = new PlayerBehavior(this);
-    }
 
+      //TODO: testaa lapsiobjektia tässä
+      //TODO: muista lisätä update draw ym. comnponent luokkiin
+      //var weapon = new Enemy();
+
+    }
   }
 }

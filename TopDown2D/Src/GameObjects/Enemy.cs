@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TopDown2D.Src.GameObjects
+namespace TopDown2D.GameObjects
 {
   public class Enemy : GameObject
   {

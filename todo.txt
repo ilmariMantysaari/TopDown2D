@@ -1,0 +1,18 @@
+
+VS code ympäristö
+
+Ominaisuuksia
+
+-lapsiobjektit
+    -refaktoroi esim objektin position haku niin, että se haetaqan aina parention kautta
+    -tarviiko lapsiobjektin periä muuta kuin positio?
+        -Myös update, draw ja collisio pitää ottaa parent objectin kautta, ettei lapsi objekteja tarvitse aina lisätä kartan kautta
+            -mahdollisimman vähä spagettinen tapa tehdä tämä?
+    
+-monimutkaisemmat colliderit
+    -viiva
+    -polygoni
+
+-siivottu versio jota on helppo uudelleenkäyttää
+    -koodista vähän koherentimpaa
+        -isot kirjaimet esim

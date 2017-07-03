@@ -6,11 +6,11 @@ namespace TopDown2D
   /// </summary>
   public class Behavior
   {
-    public GameObject parent;
+    public GameObject gameObject;
 
     public Behavior(GameObject parent)
     {
-      this.parent = parent;
+      this.gameObject = parent;
     }
 
     public virtual void Update()

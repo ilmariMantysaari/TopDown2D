@@ -11,12 +11,12 @@ namespace TopDown2D.Collision
   {
     public int radius;
     public CollisionEffect effect { get; set; }
-    public GameObject parent { get; set; }
+    public GameObject gameObject { get; set; }
 
     public CircleCollider(GameObject parent, int radius)
     {
       this.radius = radius;
-      this.parent = parent;
+      this.gameObject = parent;
     }
 
     public bool Collision(Collider collider)
@@ -31,8 +31,8 @@ namespace TopDown2D.Collision
     public bool IntersectCircle(CircleCollider circle)
     {
       var rad = this.radius + circle.radius;
-      var pos = this.parent.origin + this.parent.transform.position;
-      var pos2 = circle.parent.origin + circle.parent.transform.position;
+      var pos = this.gameObject.origin + this.gameObject.transform.Position;
+      var pos2 = circle.gameObject.origin + circle.gameObject.transform.Position;
       var distX = pos.X - pos2.X;
       var distY = pos.Y - pos2.Y;
 

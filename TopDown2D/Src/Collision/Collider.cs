@@ -9,7 +9,7 @@ namespace TopDown2D.Collision
 {
   public interface Collider
   {
-    GameObject parent { get; set; }
+    GameObject gameObject { get; set; }
     CollisionEffect effect { get; set; }
 
     bool Collision(Collider collider);

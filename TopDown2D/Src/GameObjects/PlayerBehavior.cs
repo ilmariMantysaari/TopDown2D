@@ -19,23 +19,23 @@ namespace TopDown2D.GameObjects
       base.Update();
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerUp))
       {
-        parent.transform.position += new Vector2(0, -10);
+        gameObject.transform.Position += new Vector2(0, -10);
       }
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerDown))
       {
-        parent.transform.position += new Vector2(0, 10);
+        gameObject.transform.Position += new Vector2(0, 10);
       }
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerRight))
       {
-        parent.transform.position += new Vector2(10, 0);
+        gameObject.transform.Position += new Vector2(10, 0);
       }
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerLeft))
       {
-        parent.transform.position += new Vector2(-10, 0);
+        gameObject.transform.Position += new Vector2(-10, 0);
       }
       if (Keyboard.GetState().IsKeyDown(Keys.Q))
       {
-        parent.transform.rotation += 0.01f;
+        gameObject.transform.rotation += 0.01f;
       }
     }
   }

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TopDown2D.Collision;
-using TopDown2D.Textures;
 
 namespace TopDown2D
 {
@@ -18,7 +17,7 @@ namespace TopDown2D
   {
     protected List<Collider> colliders;
 
-    protected List<Graphic> graphics;
+    protected List<Renderer> graphics;
 
     protected List<GameObject> gameObjects;
 
@@ -30,7 +29,7 @@ namespace TopDown2D
 
     public Scene()
     {
-      graphics = new List<Graphic>();
+      graphics = new List<Renderer>();
       colliders = new List<Collider>();
       gameObjects = new List<GameObject>();
       behaviors = new List<Behavior>();
@@ -66,9 +65,9 @@ namespace TopDown2D
       {
         colliders.Add(obj.collider);
       }
-      if (obj.graphic != null)
+      if (obj.renderer != null)
       {
-        graphics.Add(obj.graphic);
+        graphics.Add(obj.renderer);
       }
       if (obj.behavior != null)
       {

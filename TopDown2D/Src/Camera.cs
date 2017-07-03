@@ -47,7 +47,7 @@ namespace TopDown2D
         DebugCamera();
       }else if (follow != null)
       {
-        this.Position = follow.transform.position;
+        this.Position = follow.transform.Position;
       }
     }
     
