@@ -51,7 +51,7 @@
     <Compile Include="Src\GameObject.cs" />
     <Compile Include="Src\GameObjects\Enemy.cs" />
     <Compile Include="Src\GameObjects\Player.cs" />
-    <Compile Include="Src\GameObjects\PlayerBehavior.cs" />
+    <Compile Include="Src\GameObjects\Weapon.cs" />
     <Compile Include="Src\InputConfig.cs" />
     <Compile Include="Src\Scene.cs" />
     <Compile Include="Src\Scenes\Level1.cs" />

@@ -19,6 +19,7 @@ namespace TopDown2D
     public static Texture2D playerTexture;
     public static Texture2D enemyTexture;
     public static Texture2D mapTexture;
+    public static Texture2D weaponTexture;
 
     public TopDown2D()
     {
@@ -41,6 +42,7 @@ namespace TopDown2D
       playerTexture = Content.Load<Texture2D>("blue_circle");
       enemyTexture = Content.Load<Texture2D>("red_circle");
       mapTexture = Content.Load<Texture2D>("green_tile_grid");
+      weaponTexture = Content.Load<Texture2D>("blue_circle");
     }
 
     protected override void UnloadContent()

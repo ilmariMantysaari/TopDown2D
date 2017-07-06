@@ -6,9 +6,26 @@ Ominaisuuksia
 -lapsiobjektit
     -refaktoroi esim objektin position haku niin, että se haetaqan aina parention kautta
     -tarviiko lapsiobjektin periä muuta kuin positio?
-        -Myös update, draw ja collisio pitää ottaa parent objectin kautta, ettei lapsi objekteja tarvitse aina lisätä kartan kautta
-            -mahdollisimman vähä spagettinen tapa tehdä tämä?
+        -rotaatio pitää periä myös !!
     
+    -onko hyvä tapa toteuttaa?
+    
+-gameobjectin luonti
+    -pitäisikö liittää heti rakentajassa sceneen?
+    mikä olisi paras tapa käsitellä
+        -pitäisikö esim nykyinen scene laittaa globaaliksi TD2D luokkaan?
+        -vai dependency injection
+        
+-ammukset
+    projectile luokka
+    
+-contentin lataaminen paremmin
+
+-configin lataaminen
+
+-pelaajan jutut
+    -ase
+
 -monimutkaisemmat colliderit
     -viiva
     -polygoni

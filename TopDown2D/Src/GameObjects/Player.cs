@@ -24,8 +24,39 @@ namespace TopDown2D.GameObjects
 
       //TODO: testaa lapsiobjektia tässä
       //TODO: muista lisätä update draw ym. comnponent luokkiin
-      //var weapon = new Enemy();
+      
+    }
+  }
 
+  public class PlayerBehavior : Behavior
+  {
+    public PlayerBehavior(GameObject parent) : base(parent)
+    {
+    }
+
+    public override void Update()
+    {
+      base.Update();
+      if (Keyboard.GetState().IsKeyDown(InputConfig.playerUp))
+      {
+        gameObject.transform.Position += new Vector2(0, -10);
+      }
+      if (Keyboard.GetState().IsKeyDown(InputConfig.playerDown))
+      {
+        gameObject.transform.Position += new Vector2(0, 10);
+      }
+      if (Keyboard.GetState().IsKeyDown(InputConfig.playerRight))
+      {
+        gameObject.transform.Position += new Vector2(10, 0);
+      }
+      if (Keyboard.GetState().IsKeyDown(InputConfig.playerLeft))
+      {
+        gameObject.transform.Position += new Vector2(-10, 0);
+      }
+      if (Keyboard.GetState().IsKeyDown(Keys.Q))
+      {
+        gameObject.transform.rotation += 0.01f;
+      }
     }
   }
 }

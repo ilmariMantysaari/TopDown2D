@@ -44,5 +44,15 @@ namespace TopDown2D
     {
       Debug.WriteLine("Collision" + this);
     }
+
+    public virtual void AddChild(GameObject obj)
+    {
+      if (this.children == null)
+      {
+        this.children = new List<GameObject>();
+      }
+      this.children.Add(obj);
+      obj.parent = this;
+    }
   }
 }
