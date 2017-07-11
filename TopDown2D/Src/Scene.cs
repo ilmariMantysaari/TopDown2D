@@ -43,7 +43,7 @@ namespace TopDown2D
         behavior.Update();
       }
       CollisionDetector.DetectCollisions(colliders);
-      Debug.WriteLine("Clear");
+      //Debug.WriteLine("Clear");
       camera.Update();
     }
 
@@ -74,6 +74,7 @@ namespace TopDown2D
         behaviors.Add(obj.behavior);
       }
       gameObjects.Add(obj);
+      obj.scene = this;
     }
   }
 }

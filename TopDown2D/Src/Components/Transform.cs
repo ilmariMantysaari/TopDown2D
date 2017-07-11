@@ -12,10 +12,14 @@ namespace TopDown2D
   /// </summary>
   public class Transform
   {
-
+    public Vector2 origin;
+    
+    
     private Vector2 position;
-    public Vector2 Position {
-      get {
+    public Vector2 Position
+    {
+      get
+      {
         if (this.gameObject.parent != null)
         {
           return this.position + this.gameObject.parent.transform.position;
@@ -29,6 +33,21 @@ namespace TopDown2D
     }
 
     public float rotation;
+    public float Rotation
+    {
+      get
+      {
+        if (this.gameObject.parent != null)
+        {
+          return gameObject.parent.transform.rotation;
+        }
+        return rotation;
+      }
+      set
+      {
+        rotation = value;
+      }
+    }
 
     public GameObject gameObject;
     

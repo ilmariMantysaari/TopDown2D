@@ -12,7 +12,7 @@ namespace TopDown2D
   {
     GraphicsDeviceManager graphics;
     SpriteBatch spriteBatch;
-    Scene currentScene;
+    public static Scene currentScene;
 
     public static Viewport viewport;
 
@@ -42,7 +42,7 @@ namespace TopDown2D
       playerTexture = Content.Load<Texture2D>("blue_circle");
       enemyTexture = Content.Load<Texture2D>("red_circle");
       mapTexture = Content.Load<Texture2D>("green_tile_grid");
-      weaponTexture = Content.Load<Texture2D>("blue_circle");
+      weaponTexture = Content.Load<Texture2D>("yellow_bar");
     }
 
     protected override void UnloadContent()

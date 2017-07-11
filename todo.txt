@@ -1,35 +1,47 @@
 
 VS code ympäristö
 
+Viimeisin todo:
+    -gameobjektin rotaatio
+    -lapsen lisäys skeneen, mieluusti parentin kautta?
+    -ase ja projectilet
+
 Ominaisuuksia
 
--lapsiobjektit
-    -refaktoroi esim objektin position haku niin, että se haetaqan aina parention kautta
-    -tarviiko lapsiobjektin periä muuta kuin positio?
-        -rotaatio pitää periä myös !!
-    
-    -onko hyvä tapa toteuttaa?
-    
--gameobjectin luonti
-    -pitäisikö liittää heti rakentajassa sceneen?
-    mikä olisi paras tapa käsitellä
-        -pitäisikö esim nykyinen scene laittaa globaaliksi TD2D luokkaan?
-        -vai dependency injection
+    -Gameobjektin rotaatio
+
+    -lapsiobjektit
+        -miten lisätään skeneen?
+            -aina skenen kautta lisääminen on työlästä
+
+        -refaktoroi esim objektin position haku niin, että se haetaqan aina parention kautta
+        -tarviiko lapsiobjektin periä muuta kuin positio?
+            -rotaatio pitää periä myös !!
         
--ammukset
-    projectile luokka
+        -onko hyvä tapa toteuttaa?
+        
+    -gameobjectin luonti
+        -pitäisikö liittää heti rakentajassa sceneen?
+        mikä olisi paras tapa käsitellä
+            -pitäisikö esim nykyinen scene laittaa globaaliksi TD2D luokkaan?
+            -vai dependency injection
+            
+    -ammukset
+        projectile luokka
+        
+    -inventory
+        
+    -configin lataaminen
+        -kontrollit
+        
+    -monimutkaisemmat colliderit
+        -viiva
+        -polygoni
+
+Parannuksia
+    -contentin lataaminen paremmin
     
--contentin lataaminen paremmin
 
--configin lataaminen
-
--pelaajan jutut
-    -ase
-
--monimutkaisemmat colliderit
-    -viiva
-    -polygoni
-
--siivottu versio jota on helppo uudelleenkäyttää
-    -koodista vähän koherentimpaa
-        -isot kirjaimet esim
+    -siivottu versio jota on helppo uudelleenkäyttää
+        -koodista vähän koherentimpaa
+            -isot kirjaimet esim

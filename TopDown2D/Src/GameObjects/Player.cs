@@ -12,6 +12,10 @@ namespace TopDown2D.GameObjects
 {
   public class Player : GameObject
   {
+
+    public GameObject weapon;
+
+
     public Player()
     {
       renderer = new Renderer(this)
@@ -37,26 +41,31 @@ namespace TopDown2D.GameObjects
     public override void Update()
     {
       base.Update();
+      //TODO: rotaatio oikeaan suuntaan
+      float rotationVal = 0;
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerUp))
       {
+        rotationVal -= (float)Math.PI;
         gameObject.transform.Position += new Vector2(0, -10);
       }
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerDown))
       {
+        rotationVal += (float)Math.PI;
         gameObject.transform.Position += new Vector2(0, 10);
       }
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerRight))
       {
+        rotationVal -= (float)Math.PI;
         gameObject.transform.Position += new Vector2(10, 0);
       }
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerLeft))
       {
+        rotationVal += (float)Math.PI;
         gameObject.transform.Position += new Vector2(-10, 0);
       }
-      if (Keyboard.GetState().IsKeyDown(Keys.Q))
-      {
-        gameObject.transform.rotation += 0.01f;
-      }
+      
+      gameObject.transform.Rotation = rotationVal;
+      Debug.WriteLine(gameObject.transform.Rotation);
     }
   }
 }

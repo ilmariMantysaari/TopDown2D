@@ -25,8 +25,7 @@ namespace TopDown2D
 
     public void Draw(SpriteBatch batch)
     {
-      Vector2 origin = new Vector2(texture.Width / 2f, texture.Height / 2f);
-      batch.Draw(texture, gameObject.transform.Position, null, Color.White, gameObject.transform.rotation, origin, 1f, SpriteEffects.None, 0f);
+      batch.Draw(texture, gameObject.transform.Position, null, Color.White, gameObject.transform.Rotation, gameObject.origin, 1f, SpriteEffects.None, 0f);
     }
   }
 }
