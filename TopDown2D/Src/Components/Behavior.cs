@@ -4,7 +4,7 @@ namespace TopDown2D
   /// <summary>
   /// Handles the behaviour of the gameobject, for example movement, controls etc
   /// </summary>
-  public class Behavior
+  public abstract class Behavior
   {
     public GameObject gameObject;
 
@@ -13,9 +13,6 @@ namespace TopDown2D
       this.gameObject = parent;
     }
 
-    public virtual void Update()
-    {
-
-    }
+    public abstract void Update();
   }
 }

@@ -14,8 +14,7 @@ namespace TopDown2D.GameObjects
   {
 
     public GameObject weapon;
-
-
+    
     public Player()
     {
       renderer = new Renderer(this)
@@ -38,33 +37,61 @@ namespace TopDown2D.GameObjects
     {
     }
 
+    //the rotation of player, in 6 directions
+    private const float north = (float)Math.PI;
+    private const float northEast = -3 *( (float)Math.PI/4);
+    private const float east = -(float)Math.PI / 2;
+    private const float southEast = -(float)Math.PI/4;
+    private const float south = 0;
+    private const float southWest = (float)Math.PI/4;
+    private const float west = (float)Math.PI / 2;
+    private const float northWest = 3 * ((float)Math.PI / 4);
+
     public override void Update()
     {
-      base.Update();
-      //TODO: rotaatio oikeaan suuntaan
-      float rotationVal = 0;
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerUp))
       {
-        rotationVal -= (float)Math.PI;
+        gameObject.transform.Rotation = north;
         gameObject.transform.Position += new Vector2(0, -10);
       }
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerDown))
       {
-        rotationVal += (float)Math.PI;
+        gameObject.transform.Rotation = south;
         gameObject.transform.Position += new Vector2(0, 10);
       }
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerRight))
       {
-        rotationVal -= (float)Math.PI;
+        if (Keyboard.GetState().IsKeyDown(InputConfig.playerUp))
+        {
+          gameObject.transform.Rotation = northEast;
+        }
+        else if (Keyboard.GetState().IsKeyDown(InputConfig.playerDown))
+        {
+          gameObject.transform.Rotation = southEast;
+        }
+        else
+        {
+          gameObject.transform.Rotation = east;
+        }
         gameObject.transform.Position += new Vector2(10, 0);
       }
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerLeft))
       {
-        rotationVal += (float)Math.PI;
+        if (Keyboard.GetState().IsKeyDown(InputConfig.playerUp))
+        {
+          gameObject.transform.Rotation = northWest;
+        }
+        else if (Keyboard.GetState().IsKeyDown(InputConfig.playerDown))
+        {
+          gameObject.transform.Rotation = southWest;
+        }
+        else
+        {
+          gameObject.transform.Rotation = west;
+        }
         gameObject.transform.Position += new Vector2(-10, 0);
       }
       
-      gameObject.transform.Rotation = rotationVal;
       Debug.WriteLine(gameObject.transform.Rotation);
     }
   }

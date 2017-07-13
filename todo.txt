@@ -1,47 +1,87 @@
 
 VS code ympäristö
 
-Viimeisin todo:
-    -gameobjektin rotaatio
-    -lapsen lisäys skeneen, mieluusti parentin kautta?
-    -ase ja projectilet
 
-Ominaisuuksia
-
-    -Gameobjektin rotaatio
-
+TODO:
+    -ase
+        -projectilen "synnytys"
+        -piippusuunta
+        -älä ammu joka framella
+    -projectile
+        -esimerkiksi 
+        
     -lapsiobjektit
         -miten lisätään skeneen?
             -aina skenen kautta lisääminen on työlästä
+            
+        Pitäisikö omistus hierarkia toteuttaa esim niin että esim:
+            scene
+                -player
+                    -armor, weapon tms
+                -enemy
+                jne.
+            Scenessä ei siis olisi suoraan linkkia esim playerin alaisiin objekteihin
 
-        -refaktoroi esim objektin position haku niin, että se haetaqan aina parention kautta
-        -tarviiko lapsiobjektin periä muuta kuin positio?
-            -rotaatio pitää periä myös !!
-        
         -onko hyvä tapa toteuttaa?
+        
         
     -gameobjectin luonti
         -pitäisikö liittää heti rakentajassa sceneen?
         mikä olisi paras tapa käsitellä
             -pitäisikö esim nykyinen scene laittaa globaaliksi TD2D luokkaan?
             -vai dependency injection
-            
-    -ammukset
-        projectile luokka
-        
-    -inventory
+
         
     -configin lataaminen
         -kontrollit
         
+    
+        
+IDEOITA
+    inventory
     -monimutkaisemmat colliderit
         -viiva
         -polygoni
-
-Parannuksia
+        toteutetaan kun tarvitaan
+        
+PARANNUKSIA
+    
     -contentin lataaminen paremmin
     
-
-    -siivottu versio jota on helppo uudelleenkäyttää
+    -kaiken okoaminen yhdeksi paketiksi
+     erota mikä on "frameworkkia" ja mikä "testi"peliä
+        -testi luokista koodia frameworkkiin jos on tarpeeksi hyvää kamaa
+     siivottu versio jota on helppo uudelleenkäyttää
         -koodista vähän koherentimpaa
             -isot kirjaimet esim
+            
+            
+            
+DOKUMENTAATIO
+
+TopDown2D
+
+GameObject
+    Represents any object 
+    Collider
+        Represents the area the gameobject occupies. Can be used to detect collision between objects
+    Renderer
+        Takes care of drawing the component on screen
+        Texture
+    Transform
+        
+        Position
+        Rotation
+    Behavior
+        The behavior of the gameobject. The update method of all active behaviors are called in every update loop
+        
+        void Update()
+        
+Scene
+    
+Camera
+    
+CollisionHandler
+    Handles the logic of object collision
+
+  
