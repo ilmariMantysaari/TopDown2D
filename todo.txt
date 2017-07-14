@@ -3,14 +3,23 @@ VS code ympäristö
 
 
 TODO:
+    -pitäisikö korvata lapsi gameobjektit vaan useammalla tekstuurilla ja colliderilla
+        -esim useampaa behavioria tuskin tarvitsee
+    -miten hoidetaan gameobjektin luominen kesken pelin?
+    
     -ase
+        -poista weapon luokka ja liitä logiikka pelaajaan
+        -pitäisikö vaan ympätä esim pelaajaan
         -projectilen "synnytys"
         -piippusuunta
         -älä ammu joka framella
     -projectile
         -esimerkiksi 
         
+    -renderöintijärjestys
+    
     -lapsiobjektit
+        -scenen injektoinnille pitää keksiä toinen tapa
         -miten lisätään skeneen?
             -aina skenen kautta lisääminen on työlästä
             
@@ -45,7 +54,8 @@ IDEOITA
         toteutetaan kun tarvitaan
         
 PARANNUKSIA
-    
+    -onko behavior hyvä tapa toteuttaa
+        kannattaisiko logiikka vain suoraan laittaa luokkaan
     -contentin lataaminen paremmin
     
     -kaiken okoaminen yhdeksi paketiksi

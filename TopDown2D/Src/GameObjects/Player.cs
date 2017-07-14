@@ -15,7 +15,7 @@ namespace TopDown2D.GameObjects
 
     public GameObject weapon;
     
-    public Player()
+    public Player(Scene scene) : base(scene)
     {
       renderer = new Renderer(this)
       {
@@ -27,7 +27,10 @@ namespace TopDown2D.GameObjects
 
       //TODO: testaa lapsiobjektia tässä
       //TODO: muista lisätä update draw ym. comnponent luokkiin
-      
+      var weapon = new Weapon(scene);
+      weapon.transform.Position = new Vector2(0, 0);
+      this.AddChild(weapon);
+      scene.AddItem(weapon);
     }
   }
 

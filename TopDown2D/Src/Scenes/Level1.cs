@@ -13,21 +13,21 @@ namespace TopDown2D.Scenes
   {
     public Level1()
     {
+    }
+
+    public override void Load()
+    {
       this.background = TopDown2D.mapTexture;
-      var blue = new Player();
+      var blue = new Player(this);
       blue.transform.Position = new Vector2(300, 100);
-      var red = new Enemy();
-      
-      var weapon = new Weapon();
-      weapon.transform.Position = new Vector2(0,0);
-      blue.AddChild(weapon);
+      var red = new Enemy(this);
       
       red.collider = new CircleCollider(red, red.renderer.texture.Height / 2);
       red.origin = new Vector2(red.renderer.texture.Width / 2, red.renderer.texture.Height / 2);
 
       this.AddItem(blue);
       this.AddItem(red);
-      this.AddItem(weapon);
+      
       this.camera.follow = blue;
     }
   }

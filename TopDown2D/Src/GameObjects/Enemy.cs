@@ -10,7 +10,7 @@ namespace TopDown2D.GameObjects
 {
   public class Enemy : GameObject
   {
-    public Enemy()
+    public Enemy(Scene scene):base(scene)
     {
       this.behavior = new EnemyBehavior(this);
       this.transform = new Transform(this)

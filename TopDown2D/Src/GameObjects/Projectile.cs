@@ -1,16 +1,27 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TopDown2D.Collision;
 
 namespace TopDown2D.GameObjects
 {
   public class Projectile : GameObject
   {
-    public Projectile()
+
+
+    public Projectile(Scene scene):base(scene)
     {
       this.behavior = new ProjectileBehavior(this);
+      this.renderer = new Renderer(this, TopDown2D.shotTexture);
+      this.collider = new CircleCollider(this, 5);
+    }
+
+    public override void OnCollision(Collider obj)
+    {
+      base.OnCollision(obj);
     }
   }
 
@@ -22,7 +33,7 @@ namespace TopDown2D.GameObjects
 
     public override void Update()
     {
-      
+      gameObject.transform.Position += new Vector2(1, 1);
     }
   }
 }

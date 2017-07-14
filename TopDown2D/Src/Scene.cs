@@ -36,12 +36,22 @@ namespace TopDown2D
       camera = new Camera();
     }
 
-    public void Update()
+    public virtual void Load()
     {
+
+    }
+
+    public void Update()
+    {/*
       foreach (var behavior in behaviors)
       {
         behavior.Update();
+      }*/
+      for (int i = 0; i < behaviors.Count; i++)
+      {
+        behaviors.ElementAt(i).Update();
       }
+
       CollisionDetector.DetectCollisions(colliders);
       //Debug.WriteLine("Clear");
       camera.Update();
@@ -75,6 +85,23 @@ namespace TopDown2D
       }
       gameObjects.Add(obj);
       obj.scene = this;
+    }
+
+    public void RemoveItem(GameObject obj)
+    {
+      if (obj.collider != null)
+      {
+        colliders.Remove(obj.collider);
+      }
+      if (obj.renderer != null)
+      {
+        graphics.Remove(obj.renderer);
+      }
+      if (obj.behavior != null)
+      {
+        behaviors.Remove(obj.behavior);
+      }
+      gameObjects.Remove(obj);
     }
   }
 }

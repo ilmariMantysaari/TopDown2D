@@ -39,13 +39,13 @@ namespace TopDown2D
     //TODO: pitäisiköhän lykätä transformiin
     public Vector2 origin;
 
-    public GameObject()
+    public GameObject(Scene scene)
     {
       transform = new Transform(this);
       origin = Vector2.Zero;
     }
 
-    public GameObject(Collider collider = null, Renderer renderer = null, Transform transform = null, Behavior behavior = null)
+    public GameObject(Scene scene, Collider collider = null, Renderer renderer = null, Transform transform = null, Behavior behavior = null)
     {
       this.collider = collider;
       this.renderer = renderer;
@@ -66,7 +66,6 @@ namespace TopDown2D
       }
       this.children.Add(obj);
       obj.parent = this;
-      //TODO: lisäys skeneen myös? miten?
     }
   }
 }

@@ -23,6 +23,12 @@ namespace TopDown2D
       this.gameObject = parent;
     }
 
+    public Renderer(GameObject parent, Texture2D texture)
+    {
+      this.gameObject = parent;
+      this.texture = texture;
+    }
+
     public void Draw(SpriteBatch batch)
     {
       batch.Draw(texture, gameObject.transform.Position, null, Color.White, gameObject.transform.Rotation, gameObject.origin, 1f, SpriteEffects.None, 0f);

@@ -11,7 +11,7 @@ namespace TopDown2D.GameObjects
   public class Weapon : GameObject
   {
     public int fireDelay;
-    public Weapon()
+    public Weapon(Scene scene) : base(scene)
     {
       behavior = new WeaponBehaviour(this);
       renderer = new Renderer(this)
@@ -20,6 +20,7 @@ namespace TopDown2D.GameObjects
       };
       fireDelay = 100;
     }
+
   }
 
   public class WeaponBehaviour : Behavior
@@ -37,9 +38,12 @@ namespace TopDown2D.GameObjects
       fireCounter--;
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerShoot) && fireCounter <= 0)
       {
-        Debug.WriteLine("Shoot");
+        var projectile = new Projectile(gameObject.scene);
+        projectile.transform.Position = gameObject.transform.Position;
+        gameObject.scene.AddItem(projectile);
         fireCounter = weapon.fireDelay;
       }
     }
+    
   }
 }

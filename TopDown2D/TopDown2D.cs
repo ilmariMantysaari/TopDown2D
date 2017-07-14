@@ -20,6 +20,7 @@ namespace TopDown2D
     public static Texture2D enemyTexture;
     public static Texture2D mapTexture;
     public static Texture2D weaponTexture;
+    public static Texture2D shotTexture;
 
     public TopDown2D()
     {
@@ -33,6 +34,7 @@ namespace TopDown2D
       InputConfig.Load();
       viewport = GraphicsDevice.Viewport;
       currentScene = new Level1();
+      currentScene.Load();
     }
     
     protected override void LoadContent()
@@ -43,6 +45,7 @@ namespace TopDown2D
       enemyTexture = Content.Load<Texture2D>("red_circle");
       mapTexture = Content.Load<Texture2D>("green_tile_grid");
       weaponTexture = Content.Load<Texture2D>("yellow_bar");
+      shotTexture = Content.Load<Texture2D>("yellow_bar");
     }
 
     protected override void UnloadContent()
