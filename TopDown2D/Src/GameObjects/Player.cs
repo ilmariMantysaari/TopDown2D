@@ -13,9 +13,9 @@ namespace TopDown2D.GameObjects
   public class Player : GameObject
   {
 
-    public GameObject weapon;
+    public PlayerWeapon weapon;
     
-    public Player(Scene scene) : base(scene)
+    public Player()
     {
       renderer = new Renderer(this)
       {
@@ -27,17 +27,25 @@ namespace TopDown2D.GameObjects
 
       //TODO: testaa lapsiobjektia tässä
       //TODO: muista lisätä update draw ym. comnponent luokkiin
-      var weapon = new Weapon(scene);
+      var weapon = new PlayerWeapon();
       weapon.transform.Position = new Vector2(0, 0);
       this.AddChild(weapon);
-      scene.AddItem(weapon);
+      //scene.AddItem(weapon);
+    }
+
+    public override void OnCollision(Collider obj)
+    {
+      Debug.WriteLine("Collision" + this);
     }
   }
 
   public class PlayerBehavior : Behavior
   {
-    public PlayerBehavior(GameObject parent) : base(parent)
+    private Player player;
+
+    public PlayerBehavior(Player parent) : base(parent)
     {
+      this.player = parent;
     }
 
     //the rotation of player, in 6 directions
@@ -51,6 +59,16 @@ namespace TopDown2D.GameObjects
     private const float northWest = 3 * ((float)Math.PI / 4);
 
     public override void Update()
+    {
+      base.Update();
+      Movement();
+      if (Keyboard.GetState().IsKeyDown(Keys.G))
+      {
+        gameObject.Scene.AddItem(new Enemy());
+      }
+    }
+
+    private void Movement()
     {
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerUp))
       {
@@ -94,8 +112,6 @@ namespace TopDown2D.GameObjects
         }
         gameObject.transform.Position += new Vector2(-10, 0);
       }
-      
-      Debug.WriteLine(gameObject.transform.Rotation);
     }
   }
 }

@@ -22,7 +22,21 @@ namespace TopDown2D
     public Behavior behavior;
 
     //The scene this gameobject is in
-    public Scene scene;
+    protected Scene scene;
+    public Scene Scene {
+      get
+      {
+        if (this.parent != null)
+        {
+          return parent.Scene;
+        }
+        return scene;
+      }
+      set
+      {
+        scene = value;
+      }
+    }
 
     //the parent gameobject
     //There's necessarily no parent gameobject if this object is direct child of the scene
@@ -38,14 +52,14 @@ namespace TopDown2D
     /// <returns></returns>
     //TODO: pitäisiköhän lykätä transformiin
     public Vector2 origin;
-
-    public GameObject(Scene scene)
+    
+    public GameObject()
     {
       transform = new Transform(this);
       origin = Vector2.Zero;
     }
 
-    public GameObject(Scene scene, Collider collider = null, Renderer renderer = null, Transform transform = null, Behavior behavior = null)
+    public GameObject(Collider collider = null, Renderer renderer = null, Transform transform = null, Behavior behavior = null)
     {
       this.collider = collider;
       this.renderer = renderer;
@@ -55,7 +69,6 @@ namespace TopDown2D
 
     public virtual void OnCollision(Collider obj)
     {
-      Debug.WriteLine("Collision" + this);
     }
     
     public virtual void AddChild(GameObject obj)

@@ -12,6 +12,7 @@ namespace TopDown2D.Collision
     GameObject gameObject { get; set; }
     CollisionEffect effect { get; set; }
 
+    //TODO: pitäisiköhän muuttaa abstrakti luokaksi ja hoitaa lapsien collision täällä
     bool Collision(Collider collider);
   }
 

@@ -10,7 +10,7 @@ namespace TopDown2D.GameObjects
 {
   public class Enemy : GameObject
   {
-    public Enemy(Scene scene):base(scene)
+    public Enemy()
     {
       this.behavior = new EnemyBehavior(this);
       this.transform = new Transform(this)
@@ -31,9 +31,21 @@ namespace TopDown2D.GameObjects
     {
     }
 
+    //TODO: remove this moevement logic, just for testing enemy movement
+    //Enemy just moves up and down
+    private int distance = 100;
+    private int counter = 0;
+    private int dir = 5;
+
     public override void Update()
     {
-
+      counter++;
+      if (counter < 0 || counter > distance)
+      {
+        counter = 0;
+        dir *= -1;
+      }
+      gameObject.transform.Position += new Vector2(0, dir);
     }
   }
 }
