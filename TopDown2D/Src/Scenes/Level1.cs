@@ -16,12 +16,11 @@ namespace TopDown2D.Scenes
       this.background = TopDown2D.mapTexture;
       var blue = new Player();
       blue.transform.Position = new Vector2(300, 100);
-      var red = new Enemy();
+      //var red = new Enemy();
       
-      red.collider = new CircleCollider(red, red.renderer.texture.Height / 2);
-      red.origin = new Vector2(red.renderer.texture.Width / 2, red.renderer.texture.Height / 2);
-
-<<<<<<< HEAD
+      //red.collider = new CircleCollider(red, red.renderer.texture.Height / 2);
+      //red.origin = new Vector2(red.renderer.texture.Width / 2, red.renderer.texture.Height / 2);
+      /*
       var red = new Enemy();
 
       for (int i = 0; i < 100; i++)
@@ -51,11 +50,10 @@ namespace TopDown2D.Scenes
       }
       this.AddItem(blue);
       //this.AddItem(red);
-=======
+*/
       this.AddItem(blue);
-      this.AddItem(red);
+      //this.AddItem(red);
       
->>>>>>> b4cb74bde18b09499d7fc3c747c47050c1fd8127
       this.camera.follow = blue;
     }
   }

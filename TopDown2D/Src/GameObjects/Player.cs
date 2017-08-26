@@ -64,7 +64,7 @@ namespace TopDown2D.GameObjects
       Movement();
       if (Keyboard.GetState().IsKeyDown(Keys.G))
       {
-        gameObject.Scene.AddItem(new Enemy());
+        //gameObject.Scene.AddItem(new Enemy());
       }
     }
 
