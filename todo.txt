@@ -1,0 +1,97 @@
+
+VS code ympäristö
+
+
+TODO:
+    -pitäisikö korvata lapsi gameobjektit vaan useammalla tekstuurilla ja colliderilla
+        -esim useampaa behavioria tuskin tarvitsee
+    -miten hoidetaan gameobjektin luominen kesken pelin?
+    
+    -ase
+        -poista weapon luokka ja liitä logiikka pelaajaan
+        -pitäisikö vaan ympätä esim pelaajaan
+        -projectilen "synnytys"
+        -piippusuunta
+        -älä ammu joka framella
+    -projectile
+        -esimerkiksi 
+        
+    -renderöintijärjestys
+    
+    -lapsiobjektit
+        -scenen injektoinnille pitää keksiä toinen tapa
+        -miten lisätään skeneen?
+            -aina skenen kautta lisääminen on työlästä
+            
+        Pitäisikö omistus hierarkia toteuttaa esim niin että esim:
+            scene
+                -player
+                    -armor, weapon tms
+                -enemy
+                jne.
+            Scenessä ei siis olisi suoraan linkkia esim playerin alaisiin objekteihin
+
+        -onko hyvä tapa toteuttaa?
+        
+        
+    -gameobjectin luonti
+        -pitäisikö liittää heti rakentajassa sceneen?
+        mikä olisi paras tapa käsitellä
+            -pitäisikö esim nykyinen scene laittaa globaaliksi TD2D luokkaan?
+            -vai dependency injection
+
+        
+    -configin lataaminen
+        -kontrollit
+        
+    
+        
+IDEOITA
+    inventory
+    -monimutkaisemmat colliderit
+        -viiva
+        -polygoni
+        toteutetaan kun tarvitaan
+        
+PARANNUKSIA
+    -onko behavior hyvä tapa toteuttaa
+        kannattaisiko logiikka vain suoraan laittaa luokkaan
+    -contentin lataaminen paremmin
+    
+    -kaiken okoaminen yhdeksi paketiksi
+     erota mikä on "frameworkkia" ja mikä "testi"peliä
+        -testi luokista koodia frameworkkiin jos on tarpeeksi hyvää kamaa
+     siivottu versio jota on helppo uudelleenkäyttää
+        -koodista vähän koherentimpaa
+            -isot kirjaimet esim
+            
+            
+            
+DOKUMENTAATIO
+
+TopDown2D
+
+GameObject
+    Represents any object 
+    Collider
+        Represents the area the gameobject occupies. Can be used to detect collision between objects
+    Renderer
+        Takes care of drawing the component on screen
+        Texture
+    Transform
+        
+        Position
+        Rotation
+    Behavior
+        The behavior of the gameobject. The update method of all active behaviors are called in every update loop
+        
+        void Update()
+        
+Scene
+    
+Camera
+    
+CollisionHandler
+    Handles the logic of object collision
+
+  

@@ -25,8 +25,8 @@ namespace TopDown2D.Collision
           var collider2 = colliders.ElementAt(j);
           if (collider1.Collision(collider2))
           {
-            collider1.parent.OnCollision(collider2);
-            collider2.parent.OnCollision(collider1);
+            collider1.gameObject.OnCollision(collider2);
+            collider2.gameObject.OnCollision(collider1);
           }
         }
       }

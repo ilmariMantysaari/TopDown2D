@@ -13,40 +13,89 @@ namespace TopDown2D.GameObjects
   public class Player : GameObject
   {
 
-    public Player()
+    public GameObject weapon;
+    
+    public Player(Scene scene) : base(scene)
     {
-      position = new Vector2(300, 100);
-      graphic = new Textures.Graphic(this)
+      renderer = new Renderer(this)
       {
         texture = TopDown2D.playerTexture
       };
-      collider = new CircleCollider(this, graphic.texture.Width / 2);
-      origin = new Vector2(graphic.texture.Width / 2, graphic.texture.Height / 2);
+      collider = new CircleCollider(this, renderer.texture.Width / 2);
+      origin = new Vector2(renderer.texture.Width / 2, renderer.texture.Height / 2);
+      this.behavior = new PlayerBehavior(this);
+
+      //TODO: testaa lapsiobjektia tässä
+      //TODO: muista lisätä update draw ym. comnponent luokkiin
+      var weapon = new Weapon(scene);
+      weapon.transform.Position = new Vector2(0, 0);
+      this.AddChild(weapon);
+      scene.AddItem(weapon);
     }
+  }
+
+  public class PlayerBehavior : Behavior
+  {
+    public PlayerBehavior(GameObject parent) : base(parent)
+    {
+    }
+
+    //the rotation of player, in 6 directions
+    private const float north = (float)Math.PI;
+    private const float northEast = -3 *( (float)Math.PI/4);
+    private const float east = -(float)Math.PI / 2;
+    private const float southEast = -(float)Math.PI/4;
+    private const float south = 0;
+    private const float southWest = (float)Math.PI/4;
+    private const float west = (float)Math.PI / 2;
+    private const float northWest = 3 * ((float)Math.PI / 4);
 
     public override void Update()
     {
-      base.Update();
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerUp))
       {
-        this.position += new Vector2(0, -10);
+        gameObject.transform.Rotation = north;
+        gameObject.transform.Position += new Vector2(0, -10);
       }
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerDown))
       {
-        this.position += new Vector2(0, 10);
+        gameObject.transform.Rotation = south;
+        gameObject.transform.Position += new Vector2(0, 10);
       }
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerRight))
       {
-        this.position += new Vector2(10, 0);
+        if (Keyboard.GetState().IsKeyDown(InputConfig.playerUp))
+        {
+          gameObject.transform.Rotation = northEast;
+        }
+        else if (Keyboard.GetState().IsKeyDown(InputConfig.playerDown))
+        {
+          gameObject.transform.Rotation = southEast;
+        }
+        else
+        {
+          gameObject.transform.Rotation = east;
+        }
+        gameObject.transform.Position += new Vector2(10, 0);
       }
       if (Keyboard.GetState().IsKeyDown(InputConfig.playerLeft))
       {
-        this.position += new Vector2(-10, 0);
+        if (Keyboard.GetState().IsKeyDown(InputConfig.playerUp))
+        {
+          gameObject.transform.Rotation = northWest;
+        }
+        else if (Keyboard.GetState().IsKeyDown(InputConfig.playerDown))
+        {
+          gameObject.transform.Rotation = southWest;
+        }
+        else
+        {
+          gameObject.transform.Rotation = west;
+        }
+        gameObject.transform.Position += new Vector2(-10, 0);
       }
-      if (Keyboard.GetState().IsKeyDown(Keys.Q))
-      {
-        this.rotation += 0.01f;
-      }
+      
+      Debug.WriteLine(gameObject.transform.Rotation);
     }
   }
 }
