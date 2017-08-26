@@ -32,6 +32,13 @@ namespace TopDown2D
     public void Draw(SpriteBatch batch)
     {
       batch.Draw(texture, gameObject.transform.Position, null, Color.White, gameObject.transform.Rotation, gameObject.origin, 1f, SpriteEffects.None, 0f);
+      if (gameObject.children != null)
+      {
+        foreach (var child in gameObject.children)
+        {
+          child.renderer.Draw(batch);
+        }
+      }
     }
   }
 }

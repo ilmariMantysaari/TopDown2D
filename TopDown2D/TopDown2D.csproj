@@ -52,7 +52,7 @@
     <Compile Include="Src\GameObjects\Enemy.cs" />
     <Compile Include="Src\GameObjects\Player.cs" />
     <Compile Include="Src\GameObjects\Projectile.cs" />
-    <Compile Include="Src\GameObjects\Weapon.cs" />
+    <Compile Include="Src\GameObjects\Weapons\PlayerWeapon.cs" />
     <Compile Include="Src\InputConfig.cs" />
     <Compile Include="Src\Scene.cs" />
     <Compile Include="Src\Scenes\Level1.cs" />

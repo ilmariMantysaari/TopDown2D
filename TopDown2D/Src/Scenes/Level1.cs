@@ -11,16 +11,12 @@ namespace TopDown2D.Scenes
 {
   public class Level1 : Scene
   {
-    public Level1()
-    {
-    }
-
     public override void Load()
     {
       this.background = TopDown2D.mapTexture;
-      var blue = new Player(this);
+      var blue = new Player();
       blue.transform.Position = new Vector2(300, 100);
-      var red = new Enemy(this);
+      var red = new Enemy();
       
       red.collider = new CircleCollider(red, red.renderer.texture.Height / 2);
       red.origin = new Vector2(red.renderer.texture.Width / 2, red.renderer.texture.Height / 2);

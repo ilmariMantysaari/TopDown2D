@@ -3,25 +3,40 @@ VS code ympäristö
 
 
 TODO:
-    -pitäisikö korvata lapsi gameobjektit vaan useammalla tekstuurilla ja colliderilla
-        -esim useampaa behavioria tuskin tarvitsee
-    -miten hoidetaan gameobjektin luominen kesken pelin?
-    
+    X levelin objektien lataus
+    -lasten käsittely
+        -parent hoitaa childin päivittämisen
+        X renderer
+        X update
+        - Collide
+        
+    -toinen leveli ja levelien vaihto
+        -joku scenemanager tms luokka ja hoitaa
+            -load screenin avaamisen
+            -vanhan levelin tuhoaminen
+            -uuden luonti
+            -playerin liittäminen
+
     -ase
-        -poista weapon luokka ja liitä logiikka pelaajaan
-        -pitäisikö vaan ympätä esim pelaajaan
-        -projectilen "synnytys"
+        -ampumislogiikka aseen luokkaan
+            -entä triggaus, pitöäiskö tämä laittaa aseen omistajalle
+        X projectilen "synnytys"
         -piippusuunta
-        -älä ammu joka framella
+        X älä ammu joka framella
+       aseen vaihto
+       vihollisten aseet
+        -koodin uudelleenkäyttö
     -projectile
-        -esimerkiksi 
+        -alle 1p/frame nopeus?
+        -collision
         
     -renderöintijärjestys
     
+    
+    
     -lapsiobjektit
         -scenen injektoinnille pitää keksiä toinen tapa
-        -miten lisätään skeneen?
-            -aina skenen kautta lisääminen on työlästä
+            -factory pattern ehkä?
             
         Pitäisikö omistus hierarkia toteuttaa esim niin että esim:
             scene
@@ -86,12 +101,17 @@ GameObject
         The behavior of the gameobject. The update method of all active behaviors are called in every update loop
         
         void Update()
+    OnCollision(Collider)
+        called when object collides with another. The collider parameter is the colliding objects collider.
+    Children
+        The children are drawn, updated and checked for collision recursively. The parent gameobject handles the updating and rendering of its children
         
 Scene
     
 Camera
     
 CollisionHandler
-    Handles the logic of object collision
+    Handles the logic of object collision, and calls the OnCollision method of all the colliding objects.
+    At the moment the algorithm is very primitive, but
 
   

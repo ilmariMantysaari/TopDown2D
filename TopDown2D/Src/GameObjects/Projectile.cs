@@ -10,9 +10,9 @@ namespace TopDown2D.GameObjects
 {
   public class Projectile : GameObject
   {
-
-
-    public Projectile(Scene scene):base(scene)
+    public int speed;
+    
+    public Projectile()
     {
       this.behavior = new ProjectileBehavior(this);
       this.renderer = new Renderer(this, TopDown2D.shotTexture);

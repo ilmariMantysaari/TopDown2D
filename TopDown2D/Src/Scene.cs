@@ -13,7 +13,7 @@ namespace TopDown2D
   /// <summary>
   /// 
   /// </summary>
-  public class Scene
+  public abstract class Scene
   {
     protected List<Collider> colliders;
 
@@ -36,24 +36,16 @@ namespace TopDown2D
       camera = new Camera();
     }
 
-    public virtual void Load()
-    {
-
-    }
-
+    public abstract void Load();
+    
     public void Update()
-    {/*
-      foreach (var behavior in behaviors)
-      {
-        behavior.Update();
-      }*/
+    {
       for (int i = 0; i < behaviors.Count; i++)
       {
         behaviors.ElementAt(i).Update();
       }
 
       CollisionDetector.DetectCollisions(colliders);
-      //Debug.WriteLine("Clear");
       camera.Update();
     }
 
@@ -84,7 +76,7 @@ namespace TopDown2D
         behaviors.Add(obj.behavior);
       }
       gameObjects.Add(obj);
-      obj.scene = this;
+      obj.Scene = this;
     }
 
     public void RemoveItem(GameObject obj)
