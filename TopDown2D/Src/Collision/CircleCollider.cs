@@ -38,5 +38,10 @@ namespace TopDown2D.Collision
 
       return distX * distX + distY * distY <= rad * rad;
     }
+
+    public virtual void OnCollision(Collider obj)
+    {
+      //Do nothing
+    }
   }
 }

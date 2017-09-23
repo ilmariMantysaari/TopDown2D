@@ -9,19 +9,19 @@ using TopDown2D.Collision;
 
 namespace TopDown2D.GameObjects
 {
-  /*
+  
   public class Enemy : GameObject
   {
     public Enemy()
     {
-      position = new Vector2(300, 228);
-      graphic = new Textures.Graphic(this)
+      renderer = new Renderer(this)
       {
         texture = TopDown2D.enemyTexture
       };
-      collider = new CircleCollider(this, graphic.texture.Height / 2);
-      origin = new Vector2(graphic.texture.Width / 2, graphic.texture.Height / 2);
 
+      collider = new CircleCollider(this, renderer.texture.Height / 2);
+      origin = new Vector2(renderer.texture.Width / 2, renderer.texture.Height / 2);
+      this.behavior = new EnemyBehavior(this);
     }
   }
 
@@ -33,7 +33,7 @@ namespace TopDown2D.GameObjects
 
     public override void Update()
     {
-      
+      gameObject.transform.Position += new Vector2(0, 1);
     }
-  }*/
+  }
 }

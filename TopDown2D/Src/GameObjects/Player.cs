@@ -24,18 +24,10 @@ namespace TopDown2D.GameObjects
       collider = new CircleCollider(this, renderer.texture.Width / 2);
       origin = new Vector2(renderer.texture.Width / 2, renderer.texture.Height / 2);
       this.behavior = new PlayerBehavior(this);
-
-      //TODO: testaa lapsiobjektia tässä
-      //TODO: muista lisätä update draw ym. comnponent luokkiin
+      
       var weapon = new PlayerWeapon();
       weapon.transform.Position = new Vector2(0, 0);
       this.AddChild(weapon);
-      //scene.AddItem(weapon);
-    }
-
-    public override void OnCollision(Collider obj)
-    {
-      Debug.WriteLine("Collision" + this);
     }
   }
 
@@ -112,6 +104,18 @@ namespace TopDown2D.GameObjects
         }
         gameObject.transform.Position += new Vector2(-10, 0);
       }
+    }
+  }
+
+  public class PlayerCollider : CircleCollider
+  {
+    public PlayerCollider(GameObject parent, int radius) : base(parent, radius)
+    {
+    }
+
+    public override void OnCollision(Collider obj)
+    {
+      Debug.WriteLine("Collision" + this);
     }
   }
 }

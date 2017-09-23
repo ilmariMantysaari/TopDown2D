@@ -14,6 +14,7 @@ namespace TopDown2D.Collision
 
     //TODO: pitäisiköhän muuttaa abstrakti luokaksi ja hoitaa lapsien collision täällä
     bool Collision(Collider collider);
+    void OnCollision(Collider obj);
   }
 
   public enum CollisionEffect

@@ -1,12 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TopDown2D.Collision;
 
 namespace TopDown2D
@@ -67,10 +60,6 @@ namespace TopDown2D
       this.behavior = behavior;
     }
 
-    public virtual void OnCollision(Collider obj)
-    {
-    }
-    
     public virtual void AddChild(GameObject obj)
     {
       if (this.children == null)

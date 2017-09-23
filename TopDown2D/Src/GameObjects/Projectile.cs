@@ -18,11 +18,6 @@ namespace TopDown2D.GameObjects
       this.renderer = new Renderer(this, TopDown2D.shotTexture);
       this.collider = new CircleCollider(this, 5);
     }
-
-    public override void OnCollision(Collider obj)
-    {
-      base.OnCollision(obj);
-    }
   }
 
   public class ProjectileBehavior : Behavior
@@ -36,4 +31,5 @@ namespace TopDown2D.GameObjects
       gameObject.transform.Position += new Vector2(1, 1);
     }
   }
+
 }

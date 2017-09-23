@@ -3,6 +3,9 @@ VS code ympäristö
 
 
 TODO:
+	poista behavior kohta kokonaan
+		lisää vaan gameobjektiin
+
     X levelin objektien lataus
     -lasten käsittely
         -parent hoitaa childin päivittämisen
